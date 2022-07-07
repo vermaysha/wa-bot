@@ -11,6 +11,8 @@
   "dependencies": {
     "@adiwajshing/baileys": "^4.2.0",
     "@adiwajshing/keyed-db": "^0.2.4",
+    "dotenv": "^16.0.1",
+    "pg": "^8.7.3",
     "qrcode-terminal": "^0.12.0"
   }
 }
