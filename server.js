@@ -31,6 +31,6 @@ exports.server = () => {
     })
   })
 
-  logger.info('Server listen to port 3000')
+  console.log('Server listen to port 3000')
   app.listen(3000)
 }
