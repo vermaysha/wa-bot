@@ -17,5 +17,5 @@ module.exports = (sequelize) => {
         session: DataTypes.JSONB
     });
 
-    session.sync();
+    session.sync({ alter: true });
 };
