@@ -73,14 +73,16 @@ module.exports.command = () => {
                 let sdLink = scrap(/playable_url":"([^"]+)"/, data)
                 let titleFb = scrap(/<title>(.*?)<\/title>/, data)
                 let link
-                
-                if ($hdLink == null) {
-                    link = $hdLink
-                } else if ($sdLink == null) {
-                    link = $sdLink
+
+                if (hdLink == null) {
+                    link = hdLink
+                } else if (sdLink == null) {
+                    link = sdLink
                 } else {
                     reply(`*GAGAL*\Tidak dapat mendapatkan url video`);
                 }
+
+                fs.writeFileSync(cwd() + '/tmp/fb.html')
 
                 let randomName = getRandom(".mp4");
 
