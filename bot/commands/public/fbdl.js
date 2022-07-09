@@ -69,6 +69,8 @@ module.exports.command = () => {
 
                 fs.writeFileSync(cwd() + '/tmp/fb.html')
 
+                console.log(link)
+
                 let randomName = getRandom(".mp4");
 
                 const writer = fs.createWriteStream(cwd() + `/tmp/${randomName}`)
