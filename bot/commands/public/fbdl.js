@@ -67,7 +67,7 @@ module.exports.command = () => {
                     return
                 }
 
-                fs.writeFileSync(cwd() + '/tmp/fb.html')
+                fs.writeFileSync(cwd() + '/tmp/fb.html', data)
 
                 console.log(link)
 
