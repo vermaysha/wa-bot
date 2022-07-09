@@ -81,7 +81,7 @@ module.exports.command = () => {
 
                 fs.writeFileSync(stickerFileName + '.jpg', buffer);
 
-                let cmd = `convert ${stickerFileName + '.jpg'} -fuzz 2% -fill none -draw "matte 0,0 floodfill" -channel alpha -blur 0x2 -level 50x100% +channel ${stickerFileName + '.png'}`
+                let cmd = `magick  ${stickerFileName + '.jpg'} -fuzz 2% -fill none -draw "matte 0,0 floodfill" -channel alpha -blur 0x2 -level 50x100% +channel ${stickerFileName + '.png'}`
                 const { execSync } = require("child_process");
                 execSync(cmd)
 
