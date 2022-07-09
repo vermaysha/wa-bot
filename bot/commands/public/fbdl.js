@@ -72,13 +72,22 @@ module.exports.command = () => {
                 let hdLink = scrap(/playable_url_quality_hd":"([^"]+)"/, data)
                 let sdLink = scrap(/playable_url":"([^"]+)"/, data)
                 let titleFb = scrap(/<title>(.*?)<\/title>/, data)
+                let link
+                
+                if ($hdLink == null) {
+                    link = $hdLink
+                } else if ($sdLink == null) {
+                    link = $sdLink
+                } else {
+                    reply(`*GAGAL*\Tidak dapat mendapatkan url video`);
+                }
 
                 let randomName = getRandom(".mp4");
 
                 const writer = fs.createWriteStream(cwd() + `/tmp/${randomName}`)
                 const stream = await axios({
                     method: 'get',
-                    url: hdLink == null ? sdLink : hdLink,
+                    url: link,
                     responseType: 'stream',
                 })
             
