@@ -78,7 +78,7 @@ module.exports.command = () => {
                 const writer = fs.createWriteStream(cwd() + `/tmp/${randomName}`)
                 const stream = await axios({
                     method: 'get',
-                    url: hdLink ?? sdLink,
+                    url: hdLink == null ? sdLink : hdLink,
                     responseType: 'stream',
                 })
             
