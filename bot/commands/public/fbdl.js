@@ -23,7 +23,7 @@ scrap = (regex, data) => {
     if (match != null) {
         return JSON.parse(`{"data": "${match[1]}"}`).data
     }
-    return false
+    return null
 }
 
 module.exports.command = () => {
