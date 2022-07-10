@@ -67,53 +67,53 @@ module.exports.command = () => {
                     return
                 }
 
-                fs.writeFileSync(cwd() + '/tmp/fb.html', data)
-
+                
                 console.log(link)
+                
+                fs.writeFileSync(cwd() + '/tmp/fb.html', data)
+                // let randomName = getRandom(".mp4");
 
-                let randomName = getRandom(".mp4");
-
-                const writer = fs.createWriteStream(cwd() + `/tmp/${randomName}`)
-                const stream = await axios({
-                    method: 'get',
-                    url: link,
-                    responseType: 'stream',
-                })
+                // const writer = fs.createWriteStream(cwd() + `/tmp/${randomName}`)
+                // const stream = await axios({
+                //     method: 'get',
+                //     url: link,
+                //     responseType: 'stream',
+                // })
             
-                await new Promise((resolve, reject) => {
-                    stream.data.pipe(writer)
-                    let error = null;
-                    writer.on('error', err => {
-                        error = err;
-                        writer.close();
-                        reject(err);
-                    });
-                    writer.on('close', () => {
-                        if (!error) {
-                            resolve(true);
-                        }
-                    });
-                });
+                // await new Promise((resolve, reject) => {
+                //     stream.data.pipe(writer)
+                //     let error = null;
+                //     writer.on('error', err => {
+                //         error = err;
+                //         writer.close();
+                //         reject(err);
+                //     });
+                //     writer.on('close', () => {
+                //         if (!error) {
+                //             resolve(true);
+                //         }
+                //     });
+                // });
 
-                let stats = fs.statSync(cwd() + `/tmp/${randomName}`);
-                let fileSizeInBytes = stats.size;
-                // Convert the file size to megabytes (optional)
-                let fileSizeInMegabytes = fileSizeInBytes / (1024 * 1024);
-                console.log("Video downloaded ! Size: " + fileSizeInMegabytes);
-                if (fileSizeInMegabytes <= 100) {
-                    sock.sendMessage(
-                        from, {
-                            video: fs.readFileSync(cwd() + `/tmp/${randomName}`),
-                            caption: `${titleFb}`,
-                        }, {
-                            quoted: msg
-                        }
-                    );
-                } else {
-                    reply(`*GAGAL*\nUkuran video melebihi 100MB`);
-                }
+                // let stats = fs.statSync(cwd() + `/tmp/${randomName}`);
+                // let fileSizeInBytes = stats.size;
+                // // Convert the file size to megabytes (optional)
+                // let fileSizeInMegabytes = fileSizeInBytes / (1024 * 1024);
+                // console.log("Video downloaded ! Size: " + fileSizeInMegabytes);
+                // if (fileSizeInMegabytes <= 100) {
+                //     sock.sendMessage(
+                //         from, {
+                //             video: fs.readFileSync(cwd() + `/tmp/${randomName}`),
+                //             caption: `${titleFb}`,
+                //         }, {
+                //             quoted: msg
+                //         }
+                //     );
+                // } else {
+                //     reply(`*GAGAL*\nUkuran video melebihi 100MB`);
+                // }
 
-                fs.unlinkSync(cwd() + `/tmp/${randomName}`);
+                // fs.unlinkSync(cwd() + `/tmp/${randomName}`);
             } catch (err) {
                 console.log(err);
                 // reply(`❌ There is some problem.`);
