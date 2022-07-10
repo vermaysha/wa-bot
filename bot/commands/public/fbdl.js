@@ -10,8 +10,7 @@ const {
 const axios = require('axios').default
 const util = require('util');
 const stream = require('stream');
-const { response } = require("express");
-const pipeline = util.promisify(stream.pipeline);
+const puppeteer = require('puppeteer')
 
 
 const getRandom = (ext) => {
@@ -57,12 +56,17 @@ module.exports.command = () => {
                 urlFb.hostname = 'web.facebook.com'
                 urlFb.search = ''
 
-                res = await axios.get(urlFb.href)
+                // res = await axios.get(urlFb.href)
 
-                let data = res.data
+                // let data = res.data
 
-                let sadas = fs.writeFileSync(cwd() + `/tmp/facebook.html`, data)
-                console.log(urlFb.href)
+                const browser = await puppeteer.launch();
+                const page = await browser.newPage();
+                await page.goto(urlFb.href, {waitUntil: 'domcontentloaded'});
+                // Wait for 5 seconds
+                let data = await page.content();
+                // Take screenshot
+                await browser.close();
 
                 if (scrap(/You must log in to continue/, data)) {
                     reply(`*GAGAL*\nPastikan video yang akan didownload dapat diakses publik`);
@@ -74,8 +78,6 @@ module.exports.command = () => {
                 let titleFb = scrap(/<title>(.*?)<\/title>/, data)
                 let link = sdLink ?? hdLink
                 let randomName = getRandom(".mp4");
-
-                console.log(hdLink, sdLink, titleFb)
 
                 if (link == null) {
                     reply(`*GAGAL*\nTidak dapat mendapatkan url video`);
