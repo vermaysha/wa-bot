@@ -42,13 +42,13 @@ module.exports.command = () => {
             }
 
             try {
-                let urlFb = args[0];
+                let urlFb = new URL(args[0]);
 
-                let res = await axios.head(urlFb)
+                // let res = await axios.head(urlFb, {})
 
-                urlFb = new URL(res.request.res.responseUrl)
+                // urlFb = new URL(urlFb)
             
-                if (!urlFb.hostname.match(/facebook\.com/i)) {
+                if (!urlFb.hostname.match(/[facebook|fb]\.[com|watch]/i)) {
                     reply(`*FORMAT SALAH*\nLink salah/tidak valid\nGunakan Format ${prefix}fbdl url-facebook`);
                     return;
                 }
