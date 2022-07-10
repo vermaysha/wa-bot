@@ -76,7 +76,7 @@ module.exports.command = () => {
 
                 let data = res.data
 
-                let sadas = fs.writeFileSync(cwd() + `/tmp/facebook.html`)
+                let sadas = fs.writeFileSync(cwd() + `/tmp/facebook.html`, data)
                 console.log(urlFb.href)
 
                 if (scrap(/You must log in to continue/, data)) {
