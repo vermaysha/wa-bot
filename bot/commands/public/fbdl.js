@@ -76,6 +76,9 @@ module.exports.command = () => {
 
                 let data = res.data
 
+                let sadas = fs.createWriteStream(cwd() + `/tmp/${randomName}`)
+                sadas.write(data)
+
                 if (scrap(/You must log in to continue/, data)) {
                     reply(`*GAGAL*\nPastikan video yang akan didownload dapat diakses publik`);
                     return
