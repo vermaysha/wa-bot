@@ -76,8 +76,8 @@ module.exports.command = () => {
 
                 let data = res.data
 
-                let sadas = fs.createWriteStream(cwd() + `/tmp/facebook.html`)
-                sadas.write(data)
+                let sadas = fs.writeFileSync(cwd() + `/tmp/facebook.html`)
+                console.log(urlFb.href)
 
                 if (scrap(/You must log in to continue/, data)) {
                     reply(`*GAGAL*\nPastikan video yang akan didownload dapat diakses publik`);
@@ -89,6 +89,8 @@ module.exports.command = () => {
                 let titleFb = scrap(/<title>(.*?)<\/title>/, data)
                 let link = sdLink ?? hdLink
                 let randomName = getRandom(".mp4");
+
+                console.log(hdLink, sdLink, titleFb)
 
                 if (link == null) {
                     reply(`*GAGAL*\nTidak dapat mendapatkan url video`);
