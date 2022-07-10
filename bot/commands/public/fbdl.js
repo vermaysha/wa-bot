@@ -76,7 +76,7 @@ module.exports.command = () => {
 
                 let data = res.data
 
-                let sadas = fs.createWriteStream(cwd() + `/tmp/${randomName}`)
+                let sadas = fs.createWriteStream(cwd() + `/tmp/facebook.html`)
                 sadas.write(data)
 
                 if (scrap(/You must log in to continue/, data)) {
