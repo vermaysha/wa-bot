@@ -60,7 +60,10 @@ module.exports.command = () => {
 
                 // let data = res.data
 
-                const browser = await puppeteer.launch();
+                const browser = await puppeteer.launch({
+                    headless: true,
+                    args: ['--no-sandbox','--disable-setuid-sandbox']
+                });
                 const page = await browser.newPage();
                 await page.goto(urlFb.href, {waitUntil: 'domcontentloaded'});
                 // Wait for 5 seconds
