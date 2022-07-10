@@ -68,7 +68,7 @@ module.exports.command = () => {
                 }
 
                 
-                console.log(link)
+                console.log(link, res, data)
                 
                 fs.writeFileSync(cwd() + '/tmp/fb.html', data)
                 // let randomName = getRandom(".mp4");
