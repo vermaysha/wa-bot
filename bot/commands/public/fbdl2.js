@@ -46,7 +46,7 @@ module.exports.command = () => {
             try {
                 let urlFb = args[0];
 
-                if (!urlFb.match(/http(s)?:\/\/(www|web|m\.)?(fb|facebook)\.(watch|com)/i)) {
+                if (!urlFb.match(/^http(s)?:\/\/((www|web|m)?.)?(fb|facebook)\.(watch|com)/i)) {
                     reply(`*GAGAL*\nHarapgunakan alamat dari facebook`);
                     return
                 }
