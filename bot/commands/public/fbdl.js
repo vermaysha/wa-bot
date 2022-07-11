@@ -53,10 +53,11 @@ module.exports.command = () => {
                         'sec-ch-ua-platform': 'Windows',
                         'sec-fetch-dest': 'document',
                         'sec-fetch-mode': 'navigate',
-                        'sec-fetch-site': 'none',
+                        'sec-fetch-site': 'same-origin',
                         'sec-fetch-user': '?1',
                         'upgrade-insecure-requests': '1',
                         'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.114 Safari/537.36 Edg/103.0.1264.49',
+                        'cookie': 'sb=XYLLYuuk-3xPMr6HnPAD5eiQ; fr=0sgS7cfVDztC7jZAv..Biy4Jd.Yw.AAA.0.0.Biy4Jd.AWUH8-60rps; wd=1920x541; datr=XYLLYiderKRIZpi2Kq-V2T-c'
                     },
                     withCredentials: true
                 }
@@ -101,7 +102,6 @@ module.exports.command = () => {
                     reply(`*GAGAL*\nTidak dapat mendapatkan url video`);
                     return
                 }
-
                 
                 // console.log(link)
 
