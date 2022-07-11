@@ -45,6 +45,12 @@ module.exports.command = () => {
 
             try {
                 let urlFb = args[0];
+
+                if (!urlFb.match(/http(s)?:\/\/(www|web|m\.)?(fb|facebook)\.(watch|com)/i)) {
+                    reply(`*GAGAL*\nHarapgunakan alamat dari facebook`);
+                    return
+                }
+
                 const browser = await puppeteer.launch({
                     headless: true,
                     args: ['--no-sandbox', '--disable-setuid-sandbox']
@@ -87,8 +93,6 @@ module.exports.command = () => {
                 let link = links['720'] ?? links['360']
 
                 let randomName = getRandom(".mp4");
-
-                console.log(links)
 
                 if (link == null) {
                     reply(`*GAGAL*\nTidak dapat mendapatkan url video`);
@@ -150,8 +154,10 @@ module.exports.command = () => {
 
                 fs.unlinkSync(cwd() + `/tmp/${randomName}`);
             } catch (err) {
-                // reply(`❌ There is some problem.`);
-                reply(err.toString());
+                if (link == null) {
+                    reply(`*GAGAL*\nPastikan video yang akan didownload bersifat publik`);
+                    return
+                }
             }
         }
     };
