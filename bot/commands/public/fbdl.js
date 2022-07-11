@@ -8,9 +8,6 @@ const {
     cwd
 } = require('process')
 const axios = require('axios').default
-const util = require('util');
-const stream = require('stream');
-const puppeteer = require('puppeteer')
 
 
 const getRandom = (ext) => {
