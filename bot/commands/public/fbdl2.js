@@ -90,7 +90,7 @@ module.exports.command = () => {
                     }
                 }
                 
-                let link =(links['720'] ?? links['360']) ?? null
+                let link = (links['720'] ?? links['360']) ?? null
 
                 let randomName = getRandom(".mp4");
 
@@ -154,10 +154,8 @@ module.exports.command = () => {
 
                 fs.unlinkSync(cwd() + `/tmp/${randomName}`);
             } catch (err) {
-                if (link == null) {
-                    reply(`*GAGAL*\nPastikan video yang akan didownload bersifat publik`);
-                    return
-                }
+                reply(`*GAGAL*\nPastikan video yang akan didownload bersifat publik`);
+                return
             }
         }
     };
