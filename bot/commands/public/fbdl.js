@@ -61,7 +61,7 @@ module.exports.command = () => {
                     withCredentials: true
                 }
 
-                console.log(urlFb.href)
+                // console.log(urlFb.href)
 
                 // let res = await axios.head(urlFb.href, axisConfig)
                             
@@ -72,7 +72,7 @@ module.exports.command = () => {
 
                 // console.log(urlFb.href)
 
-                urlFb.hostname = 'web.facebook.com'
+                // urlFb.hostname = 'web.facebook.com'
                 
                 console.log(urlFb.href)
 
