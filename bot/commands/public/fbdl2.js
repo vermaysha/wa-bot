@@ -90,7 +90,7 @@ module.exports.command = () => {
                     }
                 }
                 
-                let link = links['720'] ?? links['360']
+                let link =(links['720'] ?? links['360']) ?? null
 
                 let randomName = getRandom(".mp4");
 
