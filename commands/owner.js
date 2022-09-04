@@ -42,9 +42,7 @@ module.exports.command = () => {
         templateButtons: templateButtons
       }
       
-      sock.sendMessage(from, templateMessage, {
-        mentions: [from]
-      });
+      sock.sendMessage(from, templateMessage);
     }
   };
 };
