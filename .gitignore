@@ -1,5 +1,4 @@
 .history
 node_modules
 .env
-session
 baileys_store.json
