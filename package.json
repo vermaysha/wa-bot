@@ -1,0 +1,35 @@
+{
+  "name": "wa-bot",
+  "version": "1.0.0",
+  "description": "My Personal Whatsapp Bot",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon --ignore ./session/ --ignore baileys_store.json index.js",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vermaysha/potential-whatsapp.git"
+  },
+  "keywords": [
+    "whatsapp-bot",
+    "baileys"
+  ],
+  "author": "Ashary Vermaysha",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/vermaysha/potential-whatsapp/issues"
+  },
+  "homepage": "https://github.com/vermaysha/potential-whatsapp#readme",
+  "dependencies": {
+    "@adiwajshing/baileys": "^4.4.0",
+    "@adiwajshing/keyed-db": "^0.2.4",
+    "qrcode-terminal": "^0.12.0",
+    "sharp": "^0.30.7",
+    "wa-sticker-formatter": "^4.3.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.19"
+  }
+}
