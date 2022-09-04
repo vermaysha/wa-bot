@@ -122,10 +122,11 @@ const startSock = async () => {
       const senderName = msg.pushName
       
       const isMedia          = (type === "imageMessage" || type === "videoMessage") //image or video
-      const isTaggedImage    = (type === "extendedTextMessage" && content.imageMessage != undefined)
-      const isTaggedVideo    = (type === "extendedTextMessage" && content.videoMessage != undefined)
-      const isTaggedSticker  = (type === "extendedTextMessage" && content.stickerMessage != undefined)
-      const isTaggedDocument = (type === "extendedTextMessage" && content.documentMessage != undefined)
+      const isTaggedImage    = (type === "extendedTextMessage" && content?.extendedTextMessage?.contextInfo?.quotedMessage?.imageMessage != undefined)
+      const isTaggedVideo    = (type === "extendedTextMessage" && content?.extendedTextMessage?.contextInfo?.quotedMessage?.videoMessage != undefined)
+      const isTaggedSticker  = (type === "extendedTextMessage" && content?.extendedTextMessage?.contextInfo?.quotedMessage?.stickerMessage != undefined)
+      const isTaggedDocument = (type === "extendedTextMessage" && content?.extendedTextMessage?.contextInfo?.quotedMessage?.documentMessage != undefined)
+
       const reply = (text) => {
         sock.sendMessage(from, { text }, { quoted: m.messages[0] })
       }
