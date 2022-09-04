@@ -147,7 +147,9 @@ const startSock = async () => {
 
       /* ----------------------------- public commands ---------------------------- */
       if (cmd[command]) {
+        await sock.sendPresenceUpdate('composing', from)
         cmd[command].run(sock, msg, from, args, msgInfoObj)
+        await sock.sendPresenceUpdate('available', from)
       } else {
         reply(`Send ${prefix}help for BOT commands!`)
       }
