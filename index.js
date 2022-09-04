@@ -11,6 +11,7 @@ const fs = require('fs')
 const { registerCmd } = require('./helpers/registerCmd')
 const { sanitizePhone } = require('./helpers/sanitizePhone')
 const prefix = process.env.PREFIX || '.'
+const http = require('http')
 
 const startSock = async () => {
   const { cmd } = await registerCmd()
@@ -167,3 +168,13 @@ const startSock = async () => {
 }
 
 startSock()
+
+// Create a local server to receive data from
+const server = http.createServer((req, res) => {
+  res.writeHead(200, { 'Content-Type': 'application/json' });
+  res.end(JSON.stringify({
+    status: 'Alive'
+  }));
+});
+
+server.listen(process.env.PORT || 3000);
