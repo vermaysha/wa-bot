@@ -26,7 +26,7 @@ module.exports.command = () => {
       }
 
       if (process.env.BOT_URL != undefined) {
-        text += `\n\nApabila bot tidak merespon silahkan akses alamat ini ` . process.env.BOT_URL
+        text += `\n\nApabila bot tidak merespon silahkan akses alamat ini ` + process.env.BOT_URL
       }
 
       const buttons = [{
