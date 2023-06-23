@@ -1,6 +1,6 @@
 const {
   downloadContentFromMessage
-} = require("@adiwajshing/baileys");
+} = require("@whiskeysockets/baileys");
 const fs = require('fs')
 const {
   Sticker,

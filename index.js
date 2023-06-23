@@ -5,7 +5,7 @@ const {
   fetchLatestBaileysVersion,
   Browsers,
   makeInMemoryStore
-} = require('@adiwajshing/baileys')
+} = require('@whiskeysockets/baileys')
 const sessionDir = 'session'
 const fs = require('fs')
 const { registerCmd } = require('./helpers/registerCmd')
