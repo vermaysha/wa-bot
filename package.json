@@ -28,7 +28,7 @@
     "fb-downloader-scrapper": "^1.0.1",
     "node-fetch": "^2.6.7",
     "qrcode-terminal": "^0.12.0",
-    "sharp": "^0.30.7",
+    "sharp": "^0.32.1",
     "wa-sticker-formatter": "^4.3.2",
     "ytdl-core": "^4.11.2"
   },
