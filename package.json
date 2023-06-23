@@ -23,7 +23,7 @@
   },
   "homepage": "https://github.com/vermaysha/potential-whatsapp#readme",
   "dependencies": {
-    "@adiwajshing/baileys": "^4.4.0",
+    "@whiskeysockets/baileys": "^6.3.0",
     "@adiwajshing/keyed-db": "^0.2.4",
     "fb-downloader-scrapper": "^1.0.1",
     "node-fetch": "^2.6.7",
